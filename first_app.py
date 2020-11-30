@@ -12,7 +12,6 @@ import matplotlib.pyplot as plt
 import streamlit.components.v1 as components
 
 model = pickle.load(open('model.pkl', 'rb'))
-tfidf = pickle.load(open('tfidfsmall.pkl','rb'))
 # def predict(patent_text):
 
 #     id_to_category = {0:'Not 705 or 706',1:'705',2:"706"}
