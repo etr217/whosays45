@@ -55,7 +55,6 @@ txt = st.text_area('Text to analyze', '''1. A computer-implemented method compri
           dynamically presenting a preview of the emoji prior to inputting the emoji in the communication to be made by the user.
           ''')
 if st.button('Predict Patent Class', key=None):
-    c = make_pipeline(tfidf, model)
     class_names = ['700','705','706']
     explainer = LimeTextExplainer(class_names=class_names)
     exp = explainer.explain_instance(txt, c.predict_proba, num_features=6, top_labels=1)
