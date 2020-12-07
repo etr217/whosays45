@@ -12,6 +12,7 @@ import matplotlib.pyplot as plt
 import streamlit.components.v1 as components
 
 model = pickle.load(open('model.pkl', 'rb'))
+vectorizer = pickle.load(open('vectorizer.pkl','rb'))
 # def predict(patent_text):
 
 #     id_to_category = {0:'Not 705 or 706',1:'705',2:"706"}
@@ -27,4 +28,5 @@ st.title('Streamlit Share And LIME Visualization')
 
 txt = st.text_area('Text to analyze', 'jieoaj')
 if st.button(txt, key=None):
+    c = make_pipeline(vectorizer, model)
     components.html(model.predict(txt).as_html(), height=800)
