@@ -28,9 +28,4 @@ st.title('Streamlit Share And LIME Visualization')
 
 txt = st.text_area('Text to analyze', type(model))
 if st.button('Predict Singer', key=None):
-    class_names = ['700','705','706']
-    explainer = LimeTextExplainer(class_names=class_names)
-    #exp = explainer.explain_instance(txt, model.predict_proba, num_features=6, top_labels=1)
-    exp = explainer.explain_instance(txt, model.predict_proba, num_features=6, top_labels=1)
-    # Display explainer HTML object
-    components.html(exp.as_html(), height=800)
+    components.html(model.predict(txt).as_html(), height=800)
