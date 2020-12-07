@@ -29,4 +29,4 @@ st.title('Streamlit Share And LIME Visualization')
 txt = st.text_area('Text to analyze', 'jieoaj')
 if st.button('Evaluate', key=None):
     c = make_pipeline(vectorizer, model)
-    components.html(model.predict(txt).as_html(), height=800)
+    components.html(c.predict(txt).as_html(), height=800)
