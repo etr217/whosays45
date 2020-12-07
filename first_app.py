@@ -29,6 +29,6 @@ st.title('Streamlit Share And LIME Visualization')
 txt = st.text_area('sjifagsorejas', 'jieoaj')
 if st.button('Evaluate', key=None):
     c = make_pipeline(vectorizer, model)
-    #a = c.predict(str(txt))
+    a = c.predict(str(txt))
     #st.write(a)
     
