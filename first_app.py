@@ -13,6 +13,7 @@ import streamlit.components.v1 as components
 
 model = pickle.load(open('model.pkl', 'rb'))
 vectorizer = pickle.load(open('vectorizer.pkl','rb'))
+vectorizer = vectorizer.toarray()
 # def predict(patent_text):
 
 #     id_to_category = {0:'Not 705 or 706',1:'705',2:"706"}
@@ -29,7 +30,7 @@ st.title('Streamlit Share And LIME Visualization')
 txt = st.text_area('sjifagsorejas', 'jieoaj')
 if st.button('Evaluate', key=None):
     #c = make_pipeline(vectorizer, model)
-    b = vectorizer.transform(txt)
-    a = c.predict(b.toarray())
+    b = vectorizer.transform(str(txt))
+    a = model.predict(b)
     st.write(a)
     
