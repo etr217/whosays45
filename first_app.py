@@ -26,7 +26,7 @@ model = pickle.load(open('model.pkl', 'rb'))
 st.title('The Beatles or Taylor Swift') 
 st.title('Streamlit Share And LIME Visualization')
 
-txt = st.text_area('Text to analyze', 'You know the rules, and so do I')
+txt = st.text_area('Text to analyze', type(model))
 if st.button('Predict Singer', key=None):
     class_names = ['700','705','706']
     explainer = LimeTextExplainer(class_names=class_names)
