@@ -57,6 +57,7 @@ txt = st.text_area('Text to analyze', '''1. A computer-implemented method compri
 if st.button('Predict Patent Class', key=None):
     class_names = ['700','705','706']
     explainer = LimeTextExplainer(class_names=class_names)
-    exp = explainer.explain_instance(txt, model.predict_proba, num_features=6, top_labels=1)
+    #exp = explainer.explain_instance(txt, model.predict_proba, num_features=6, top_labels=1)
+    exp = explainer.explain_instance(txt, type(model), num_features=6, top_labels=1)
     # Display explainer HTML object
     components.html(exp.as_html(), height=800)
