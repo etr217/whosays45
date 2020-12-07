@@ -26,6 +26,5 @@ st.title('The Beatles or Taylor Swift')
 st.title('Streamlit Share And LIME Visualization')
 
 txt = st.text_area('Text to analyze', 'jieoaj')
-txt = st.text_area('Text to analyze', txt)
-if st.button('Predict Singer', key=None):
+if st.button(txt, key=None):
     components.html(model.predict(txt).as_html(), height=800)
