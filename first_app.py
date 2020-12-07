@@ -26,7 +26,7 @@ vectorizer = pickle.load(open('vectorizer.pkl','rb'))
 st.title('The Beatles or Taylor Swift') 
 st.title('Streamlit Share And LIME Visualization')
 
-txt = st.text_area('Text to analyze', 'jieoaj')
+txt = st.text_area(type(vectorizer), 'jieoaj')
 if st.button('Evaluate', key=None):
     c = make_pipeline(vectorizer, model)
     components.html(c.predict(txt).as_html(), height=800)
