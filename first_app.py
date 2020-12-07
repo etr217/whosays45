@@ -22,10 +22,10 @@ model = pickle.load(open('model.pkl', 'rb'))
 
 #     return predicted_class
 
-
 st.title('The Beatles or Taylor Swift') 
 st.title('Streamlit Share And LIME Visualization')
 
-txt = st.text_area('Text to analyze', type(txt))
+txt = st.text_area('Text to analyze', 'jieoaj')
+txt = st.text_area('Text to analyze', txt)
 if st.button('Predict Singer', key=None):
     components.html(model.predict(txt).as_html(), height=800)
