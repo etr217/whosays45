@@ -23,11 +23,11 @@ model = pickle.load(open('model.pkl', 'rb'))
 #     return predicted_class
 
 
-st.title('Patent Classification') 
+st.title('The Beatles or Taylor Swift') 
 st.title('Streamlit Share And LIME Visualization')
 
-txt = st.text_area('Text to analyze', type(model))
-if st.button('Predict Patent Class', key=None):
+txt = st.text_area('Text to analyze', 'You know the rules, and so do I')
+if st.button('Predict Singer', key=None):
     class_names = ['700','705','706']
     explainer = LimeTextExplainer(class_names=class_names)
     #exp = explainer.explain_instance(txt, model.predict_proba, num_features=6, top_labels=1)
