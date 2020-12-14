@@ -14,15 +14,15 @@ import streamlit.components.v1 as components
 model = pickle.load(open('model.pkl', 'rb'))
 vectorizer = pickle.load(open('vectorizer.pkl','rb'))
 vectorizer = vectorizer.toarray()
-# def predict(patent_text):
+def predict(patent_text):
 
-#     id_to_category = {0:'Not 705 or 706',1:'705',2:"706"}
+    id_to_category = {0:'Not 705 or 706',1:'705',2:"706"} # definitely ignore this
+    
+    final_features = tfidf.transform([patent_text]) # see how this was done I put the input text into a list, then transformed it with the tfidf 
+    prediction = model.predict(final_features) # here is the prediction.
+    predicted_class = id_to_category[prediction[0]]   # probably ignore this
 
-#     final_features = tfidf.transform([patent_text])
-#     prediction = model.predict(final_features)
-#     predicted_class = id_to_category[prediction[0]]
-
-#     return predicted_class
+    return predicted_class
 
 st.title('The Beatles or Taylor Swift') 
 st.title('Streamlit Share And LIME Visualization')
